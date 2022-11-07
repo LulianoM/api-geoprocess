@@ -1,0 +1,33 @@
+version: '3.9'
+services:
+
+  backend_db:
+    image: "postgres"
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=api-geoprocess
+      - DB_EXTENSION="uuid-ossp"
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 2s
+      timeout: 5s
+      start_period: 2s
+      retries: 3
+  
+  backend:
+    build: .
+    environment:
+      - DB_HOST=backend_db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=api-geoprocess
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/app
+    depends_on:
+      - backend_db  
