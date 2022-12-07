@@ -1,18 +1,16 @@
 package models
 
-import "github.com/google/uuid"
-
 type Commercials struct {
 	Metadata
 
-	Service   *Service
-	ServiceID uuid.UUID `json:"service_id"`
+	// Service   *Service
+	// ServiceID uuid.UUID `json:"service_id"`
 
 	Name         string `json:"name"`
-	Class        string
+	Class        string `json:"class"`
 	Photo        string
-	Coordinates  string
-	PaymentForms string
+	Coordinates  string `json:"coordinates"`
+	PaymentForms string `json:"payment_forms"`
 
 	// ContactData   *Contact
 	// OperationData *Operation

@@ -1,10 +1,8 @@
 package models
 
-import "github.com/google/uuid"
-
 type Service struct {
-	Seller   *Seller
-	SellerID uuid.UUID `json:"seller_id"`
+	// Seller   *Seller
+	// SellerID uuid.UUID `json:"seller_id"`
 	Metadata
 	Type TypeOfService
 }

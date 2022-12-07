@@ -7,7 +7,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=api-geoprocess
+      - POSTGRES_DB=geoprocess-db
       - DB_EXTENSION="uuid-ossp"
     ports:
       - "5432:5432"
@@ -24,7 +24,7 @@ services:
       - DB_HOST=backend_db
       - DB_USER=postgres
       - DB_PASSWORD=postgres
-      - DB_NAME=api-geoprocess
+      - DB_NAME=geoprocess-db
     ports:
       - 8080:8080
     volumes:
